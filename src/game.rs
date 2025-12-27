@@ -157,9 +157,14 @@ trait Checker {
 
 impl Checker for Board {
     fn check_draw(&self) -> bool {
-        for i in 0..9 { // using reference so it dosent move ? (i think i could also clone it .clone())
-            if self.board[i] == ' ' {
+        // for i in 0..9 { // using reference so it dosent move ? (i think i could also clone it .clone())
+        //     if self.board[i] == ' ' {
                 
+        //         return false;
+        //     }
+        // }
+        for i in &self.board {
+            if i == &' ' { // *i == ' ' also works
                 return false;
             }
         }
